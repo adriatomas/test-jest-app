@@ -6,8 +6,15 @@ on:
             - master
             - main
 jobs:
-    coverage:
+    coverage-visualization:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
             - uses: ArtiomTr/jest-coverage-report-action@v2
+    
+    coverage-report:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - run: npm i
+            - run: npm run coverag
