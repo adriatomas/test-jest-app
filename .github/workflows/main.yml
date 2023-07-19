@@ -1,16 +1,13 @@
-name: 'coverage'
-on:
-    pull_request:
-        branches:
-            - master
-            - main
-    push:
-        branches:
-            - master
-            - main
+on: pull_request
+
 jobs:
-    coverage:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: ArtiomTr/jest-coverage-report-action@v2
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello world action step
+        id: hello
+        uses: raulanatol/jest-coverage-comment-action@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          jest-command: 'npm run jest:ci'
+          working-directory: 'packages/my-package'
