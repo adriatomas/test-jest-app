@@ -1,6 +1,9 @@
-name: 'test'
-on: pull_request_target
-
+name: 'coverage'
+on:
+    pull_request:
+        branches:
+            - master
+            - main
 jobs:
     coverage:
         runs-on: ubuntu-latest
